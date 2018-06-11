@@ -5,7 +5,10 @@ import numpy as np
 import nltk
 from textblob.classifiers import NaiveBayesClassifier
 
-"""
+
+ta_train = pd.read_csv('data/train.csv')
+ta_test = pd.read_csv("data/test.csv")
+
 # Simply use textblob to predict the sentiment of sentences
 prediction=[]
 for i in range(len(ta_test)):
@@ -24,7 +27,7 @@ submission = pd.DataFrame({
 print(submission)
 submission.to_csv('/Users/martin_yan/Desktop/submission.csv', index=False)
 
-# ntlk built in sentiment analysis method
+# NTLK built in sentiment analysis method
 #nltk.download('vader_lexicon')
 ta_train = pd.read_csv('data/train.csv')
 ta_test = pd.read_csv("data/test.csv")
@@ -49,20 +52,5 @@ submission = pd.DataFrame({
     })
 print(submission)
 submission.to_csv('/Users/martin_yan/Desktop/submission.csv', index=False)
-"""
-
-# nltk朴素贝叶斯分类判断 数据量太大很慢
-ta_train = pd.read_csv('data/train.csv')
-ta_test = pd.read_csv("data/test.csv")
-
-def doc_feature(doc):
-    train = []
-    for index, row in doc.iterrows():
-        tuple = (row['tweet'],row['positiev'])
-        train.append(tuple)
-    return train
-train1=nltk.apply_features(doc_feature,ta_train)
-cl = NaiveBayesClassifier(train1)
-print(cl.classify("Their burgers are amazing"))
 
 

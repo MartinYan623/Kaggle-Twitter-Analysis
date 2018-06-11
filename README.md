@@ -36,3 +36,30 @@ Got score 0.62329 (more higher, more better)
 This is also a method which we do not use train data set and directly predict the sentiment condition of test data set.
 
 Got score 0.65036
+
+2018.6.11
+
+(1) Use nltk again to download the 'stopwords'. nltk is a tool for natural language processing.
+
+(2) Lstm method is used to do sentiment analysis and get a much improvement.
+
+the core code as follows:
+
+#model = Sequential()
+
+#model.add(Embedding(dictionary_size,128,dropout = 0.2))
+
+#model.add(LSTM(128,dropout_W = 0.2,dropout_U=0.2))
+
+#model.add(Dense(num_labels))
+
+#model.add(Activation('softmax'))
+
+#model.compile(loss='categorical_crossentropy',optimizer = 'adam',metrics=['accuracy'])
+
+#model.fit(word_id_train,y_train_enc,nb_epoch=1,batch_size =256,verbose=1)
+
+consider to adjust the parameter of lstm and hope to get better result.
+
+Got score 0.79445
+
