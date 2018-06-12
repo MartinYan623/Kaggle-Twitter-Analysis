@@ -68,7 +68,7 @@ y_train_enc = np_utils.to_categorical(positive_train, num_labels)
 
 print('LSTM')
 model = Sequential()
-model.add(Embedding(dictionary_size,128,dropout = 0.2))
+model.add(Embedding(dictionary_size,128,dropout = 0.5))
 model.add(LSTM(128,dropout_W = 0.2,dropout_U=0.2))
 model.add(Dense(num_labels))
 model.add(Activation('softmax'))
@@ -77,6 +77,6 @@ model.fit(word_id_train,y_train_enc,nb_epoch=1,batch_size =256,verbose=1)
 
 test_pred = model.predict_classes(word_id_test)
 test_df['positive'] = test_pred.reshape(-1,1)
-header = ['id','prediction']
-test_df.to_csv('/Users/martin_yan/Desktop/prediction.csv',columns=header,index = False,header = True)
+header = ['id','positive']
+test_df.to_csv('/Users/martin_yan/Desktop/submission.csv',columns=header,index = False,header = True)
 

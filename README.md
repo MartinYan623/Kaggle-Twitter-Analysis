@@ -63,3 +63,12 @@ consider to adjust the parameter of lstm and hope to get better result.
 
 Got score 0.79445
 
+2018.6.12
+
+(1) Try to change the parameter of lstm, for instance, dropout parameter equals to 0.5.
+
+Get a more accurate result in the screen shot, but I do not get a better result on learnboard of kaggle.
+
+(2) Change the output header. one column is id and the other is prediction.
+
+Got score 0.79445
